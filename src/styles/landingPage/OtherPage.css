@@ -1,0 +1,239 @@
+/* Variables de color y tipografía */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #2d3436;
+  --button-bg-color: #e58e26;
+  --button-text-color: #000000;
+  --section-bg-color: #ffffff;
+
+  /* Tipografía */
+  --font-family: "Montserrat", sans-serif;
+  --header-font-size: 24px;
+  --h1-font-size: 48px;
+  --h2-font-size: 36px;
+  --h3-font-size: 24px;
+  --h4-font-size: 18px;
+  --p-font-size: 16px;
+  --small-font-size: 14px;
+  --text-align: center;
+}
+
+.dark-mode {
+  --bg-color: #333;
+  --text-color: #ffffff;
+  --button-bg-color: #e58e26;
+  --button-text-color: #e0e0e0;
+  --section-bg-color: #333;
+}
+
+/* Estilos Globales */
+body,
+html {
+  margin: 0;
+  height: auto;
+  font-family: var(--font-family);
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.other-page {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CABEZERA */
+.header {
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: var(--header-font-size);
+  font-weight: bold;
+  color: var(--button-bg-color);
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.signup-btn {
+  padding: 10px 20px;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.lang {
+  font-size: var(--small-font-size);
+  cursor: pointer;
+}
+
+.toggle-button {
+  color: var(--text-color);
+  font-size: 24px;
+}
+
+.dark-mode .toggle-button {
+  color: white;
+  background: none;
+}
+
+.toggle-button:not(.dark-mode) {
+  color: black;
+  background: none;
+}
+
+/* HORA */
+.current-time {
+  font-size: 24px;
+  color: var(--text-color);
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.dark-mode .current-time {
+  color: #e0e0e0;
+}
+
+/* CAMBIAR IDIOMA */
+.lang {
+  margin: 20px 0;
+}
+
+.language-select {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--select-bg-color);
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+.dark-mode .language-select {
+  border-color: #777;
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.language-select:focus {
+  border-color: var(--focus-color);
+  outline: none;
+}
+
+/* SECCIÓN PRINCIPAL */
+.hero-section {
+  padding: 60px;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-content h1 {
+  font-size: var(--h1-font-size);
+  color: var(--text-color);
+}
+
+.text-content p {
+  font-size: var(--p-font-size);
+  color: var(--text-color);
+  margin: 20px 0;
+}
+
+.play-demo-btn {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+}
+
+/* OBJETIVOS SECCIÓN */
+.services-section {
+  padding: 40px;
+  background-color: var(--section-bg-color);
+  text-align: var(--text-align);
+}
+
+.category {
+  font-size: var(--small-font-size);
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: var(--h2-font-size);
+  font-weight: bold;
+  color: var(--button-bg-color);
+  margin-bottom: 30px;
+}
+
+.services-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: var(--text-align);
+  width: 220px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-item.highlighted {
+  background-color: #f7f8fb;
+}
+
+.service-item h4 {
+  font-size: var(--h4-font-size);
+  color: var(--text-color);
+  margin: 15px 0;
+}
+
+.service-item p {
+  font-size: var(--small-font-size);
+  color: #7b8a8b;
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.traveler-image {
+  width: 850px;
+  height: auto;
+}

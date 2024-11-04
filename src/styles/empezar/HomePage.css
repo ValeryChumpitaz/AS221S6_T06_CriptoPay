@@ -1,0 +1,102 @@
+/* Aplicar la fuente Montserrat a toda la página */
+* {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .homepage-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f4f8;
+    position: relative;
+  }
+  
+  .homepage-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .homepage-title {
+    font-size: 2em;
+    color: #FB8C00;
+    font-weight: 700;
+    animation: slideUp 1s ease-out forwards;
+  }
+  
+  .homepage-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideUp 1.5s ease-out forwards;
+  }
+  
+  .homepage-image {
+    width: 100%;
+    height: auto;
+    max-width: 1000px;
+    object-fit: contain;
+  }
+  
+  .homepage-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: slideUp 2s ease-out forwards;
+  }
+  
+  .homepage-welcome {
+    font-size: 2.5em;
+    color: #ff7e29;
+    margin-bottom: 10px;
+  }
+  
+  .homepage-tagline {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .homepage-start-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #FB8C00;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .homepage-start-button:hover {
+    background-color: #FB8C00;
+  }
+  
+  .homepage-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #ecf0f1;
+    padding: 10px 0;
+    color: #34495e;
+  }
+  
+  /* Animación de deslizamiento hacia arriba */
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

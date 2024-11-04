@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: shirleyascencio/as221s6_t06_cryptopay-frontend:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - database
+
+  database:
+    image: shirleyascencio/as221s6_t06_cryptopay-database:latest
+    ports:
+      - "3001:3001"
+    environment:
+      MONGO_URL: "mongodb://mongo:27017/mydb"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db

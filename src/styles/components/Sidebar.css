@@ -1,0 +1,84 @@
+.sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #ff7e29, #ffb74d);
+  padding: 20px;
+  border-radius: 10px 20px 60px 40px; /* Superior izquierda, superior derecha, inferior derecha, inferior izquierda */
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.profile-pic {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.role {
+  font-size: 12px;
+  color: #e0e0e0;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item, .sub-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px; /* Aumenta el padding para mejor clic */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.icon {
+  font-size: 26px;
+  margin-right: 10px;
+}
+
+.arrow {
+  font-size: 14px;
+  margin-left: auto; /* Mueve la flecha al extremo derecho */
+}
+
+.menu-item:hover,
+.sub-menu-item:hover {
+  background-color: #f7a037; /* Mejora el contraste en hover */
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 20px;
+  margin-top: 5px; /* Espacio entre el menú y submenú */
+}
+
+.sub-menu-item {
+  padding: 8px 0; /* Ajusta el padding del submenú */
+  font-size: 18px; /* Tamaño de fuente más pequeño para el submenú */
+}

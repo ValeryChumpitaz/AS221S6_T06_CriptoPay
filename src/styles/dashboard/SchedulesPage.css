@@ -1,0 +1,80 @@
+/* Contenedor principal */
+.schedules-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Estilo de contenido */
+.schedules-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Encabezado de la página */
+.schedules-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.schedules-header h1 {
+  color: #ff7e29;
+  font-size: 2.4rem;
+  margin: 0;
+}
+
+.schedules-header p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+/* Tabla de horarios */
+.schedules-table {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.schedules-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.schedules-table th,
+.schedules-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+.schedules-table th {
+  background-color: #ff7e29;
+  color: #ecf0f1;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.schedules-table tr:hover {
+  background-color: #f4f4f9;
+}
+
+/* Colores y estilo al seleccionar un día */
+.schedules-table td {
+  transition: background-color 0.3s ease;
+}
+
+.schedules-table td:first-child {
+  font-weight: bold;
+  color: #ff7e29;
+}
+
+.schedules-table tr:nth-child(even) {
+  background-color: #fafafa;
+}

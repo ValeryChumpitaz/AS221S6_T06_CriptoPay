@@ -1,0 +1,150 @@
+/* Fondo general */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Contenedor principal de la página de inicio de sesión */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff7e29, #ffb74d);
+  color: #ffffff;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Formulario de inicio de sesión */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 320px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.login-form:hover {
+  transform: translateY(-5px);
+}
+
+.address {
+  font-size: 1rem;
+  color: #ffe7cc;
+}
+
+/* Botones de conexión y login */
+.connect-button, .login-button {
+  background-color: #ffffff;
+  color: #ff7e5f;
+  border: none;
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.connect-button:hover, .login-button:hover {
+  background-color: #ffe0c2;
+  color: #ff7e5f;
+  transform: scale(1.05);
+}
+
+.connect-button:disabled, .login-button:disabled {
+  background-color: #f0f0f0;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Enlace de registro */
+.register-prompt {
+  font-size: 0.9rem;
+  color: #ffd3b6;
+}
+
+.register-prompt a {
+  color: #ffebcc;
+  text-decoration: underline;
+}
+
+.register-prompt a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Estilos de alertas personalizados */
+.alert-container {
+  backdrop-filter: blur(5px);
+}
+
+.alert-popup {
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #ff7e29, #ffb74d);
+  color: #fff;
+}
+
+.alert-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.alert-content {
+  font-size: 1.1rem;
+  color: #ffe0c2;
+}
+
+.alert-confirm-button {
+  background-color: #ffffff;
+  color: #ff7e5f;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.alert-confirm-button:hover {
+  background-color: #ffe0c2;
+  color: #ff7e5f;
+}
+
+/* Botón de retroceso */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.back-button:hover {
+  background: #f0f0f0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

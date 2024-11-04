@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff7e29, #ffb74d);
+}
+
+.main-container h1 {
+  color: #ffffff; 
+}
+
+.main-button {
+  background-color: #ffffff;
+  color: #FB8C00; /* Color de texto naranja */
+  border: none;
+  border-radius: 5px;
+  padding: 12px 12px;
+  font-size: 1.1rem;
+  margin: 35px;
+}

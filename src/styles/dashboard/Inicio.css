@@ -1,0 +1,105 @@
+/* Estructura general */
+.inicio-container {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff; /* Fondo suave y degradado */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.inicio-content {
+  flex: 1;
+  margin-left: 350px;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Estilos de la cabecera */
+.inicio-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.inicio-header h1 {
+  color: #ff7e29;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.inicio-header p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 10px 0 0;
+}
+
+/* Sección de información del proyecto */
+.project-info, .team-members {
+  max-width: 800px;
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-info:hover, .team-members:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-info h2, .team-members h2 {
+  color: #ff7e29;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.project-info p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Estilos del equipo */
+.team-members ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.team-members li {
+  font-size: 1.1rem;
+  color: #000000;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: #f5f5f5;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.team-members li:hover {
+  background: #e0e0e0;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
