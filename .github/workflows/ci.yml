@@ -23,11 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm install  # Instala las dependencias del proyecto
 
-      - name: Set up Java 17 (Adoptium)
+      - name: Set up Java 17 (Eclipse Temurin)
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'adoptium'
+          distribution: 'temurin'  # Usamos Eclipse Temurin para Java 17
 
       - name: Run SonarCloud analysis
         uses: sonarsource/sonarcloud-github-action@v1
