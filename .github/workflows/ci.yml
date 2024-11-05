@@ -27,14 +27,8 @@ jobs:
       - name: Install dependencies
         run: npm install  # Instala las dependencias del proyecto
 
-      # Paso 4: Configurar Java 17 para SonarCloud
-      - name: Set up Java 17 (Eclipse Temurin)
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'  # Usamos Java 17 (LTS)
-          distribution: 'temurin'  # Eclipse Temurin es la distribución recomendada
 
-      # Paso 5: Ejecutar análisis de SonarCloud
+      # Paso 4: Ejecutar análisis de SonarCloud
       - name: Run SonarCloud analysis
         uses: sonarsource/sonarcloud-github-action@v1
         with:
