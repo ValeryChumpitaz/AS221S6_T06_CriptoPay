@@ -1,4 +1,5 @@
-name: Build and Deploy
+name: Build, SonarCloud Analysis and Deploy Docker Image
+
 on:
   push:
     branches:
@@ -10,22 +11,23 @@ jobs:
   sonarcloud:
     name: SonarCloud Analysis
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0  # Asegúrate de obtener todo el historial de commits
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   docker-build-push:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
-    needs: sonarcloud  # Este job depende del análisis de SonarCloud
+    needs: sonarcloud  # Este job depende de que el análisis de SonarCloud haya finalizado correctamente.
 
     steps:
       - name: Check out code
@@ -34,8 +36,8 @@ jobs:
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}  # Tu usuario de Docker Hub
-          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}  # Usando el token de acceso de Docker Hub
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
 
       - name: Build Docker Image
         run: |
