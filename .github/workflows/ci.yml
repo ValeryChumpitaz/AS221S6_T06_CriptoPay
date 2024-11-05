@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sonarcloud-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'  # Cambia a la versión de Node.js que necesites
+
+      - name: Install dependencies
+        run: npm install  # Instala las dependencias del proyecto
+
+      - name: Run SonarCloud analysis
+        uses: sonarsource/sonarcloud-github-action@v1
+        with:
+          sonar-token: ${{ secrets.SONAR_TOKEN }}  # Este es tu token de SonarCloud
