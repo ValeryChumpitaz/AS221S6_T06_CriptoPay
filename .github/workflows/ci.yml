@@ -25,5 +25,5 @@ jobs:
 
       - name: Run SonarCloud analysis
         uses: sonarsource/sonarcloud-github-action@v1
-        with:
-          sonar-token: ${{ secrets.SONAR_TOKEN }}  # Este es tu token de SonarCloud
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Aquí estamos configurando el token como variable de entorno
