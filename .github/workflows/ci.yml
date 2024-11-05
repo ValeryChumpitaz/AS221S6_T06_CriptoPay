@@ -3,33 +3,39 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - develop
+      - develop  # Cambia a la rama que necesites (puede ser main o cualquier otra)
   pull_request:
     branches:
-      - main
+      - main  # Cambia a la rama principal que estás usando
 
 jobs:
   sonarcloud-analysis:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Ejecutar en la última imagen de Ubuntu
+
     steps:
+      # Paso 1: Hacer checkout del código
       - name: Check out code
         uses: actions/checkout@v2
 
+      # Paso 2: Configurar Node.js (para proyectos Angular/React)
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18'  # Cambia a la versión de Node.js que necesites
 
+      # Paso 3: Instalar las dependencias de Node.js (Angular/React)
       - name: Install dependencies
         run: npm install  # Instala las dependencias del proyecto
 
+      # Paso 4: Configurar Java 17 para SonarCloud
       - name: Set up Java 17 (Eclipse Temurin)
         uses: actions/setup-java@v2
         with:
-          java-version: '17'
-          distribution: 'temurin'  # Usamos Eclipse Temurin para Java 17
+          java-version: '17'  # Usamos Java 17 (LTS)
+          distribution: 'temurin'  # Eclipse Temurin es la distribución recomendada
 
+      # Paso 5: Ejecutar análisis de SonarCloud
       - name: Run SonarCloud analysis
         uses: sonarsource/sonarcloud-github-action@v1
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Aquí estamos configurando el token como variable de entorno
+        with:
+          sonar-token: ${{ secrets.SONAR_TOKEN }}  # Token de SonarCloud (asegúrate de configurarlo en Secrets)
