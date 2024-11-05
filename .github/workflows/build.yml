@@ -35,12 +35,12 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}  # Tu usuario de Docker Hub
-          password: ${{ secrets.DOCKER_PASSWORD }}  # Tu token de Docker Hub o contraseña
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}  # Usando el token de acceso de Docker Hub
 
       - name: Build Docker Image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:$GITHUB_SHA .
-      
+
       - name: Push Docker Image to Docker Hub
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/my-app:$GITHUB_SHA
