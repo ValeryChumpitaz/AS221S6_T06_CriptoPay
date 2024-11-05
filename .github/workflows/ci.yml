@@ -23,11 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm install  # Instala las dependencias del proyecto
 
-      - name: Set up Java 17
+      - name: Set up Java 17 (Adoptium)
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'adoptopenjdk'
+          distribution: 'adoptium'
 
       - name: Run SonarCloud analysis
         uses: sonarsource/sonarcloud-github-action@v1
