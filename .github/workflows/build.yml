@@ -1,4 +1,4 @@
-name: Build, SonarCloud Analysis and Deploy Docker Image
+name: Build, SonarCloud Analysis, and Deploy Docker Image
 
 on:
   push:
@@ -13,36 +13,54 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Asegúrate de obtener todo el historial de commits
+          fetch-depth: 0  # Asegúrate de obtener todo el historial de commits para un análisis relevante
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'zulu' # Usando la distribución Zulu, pero puedes cambiarla si es necesario.
+
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Necesario para acceder a información de PR, si existe.
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ValeryChumpitaz_PR2_Competencias_sonarcloud
 
   docker-build-push:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
-    needs: sonarcloud  # Este job depende de que el análisis de SonarCloud haya finalizado correctamente.
+    needs: sonarcloud  # Este trabajo depende de que SonarCloud haya terminado correctamente
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3  # Asegúrate de hacer checkout del código después del análisis.
 
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}  # Tu usuario de Docker Hub
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}  # Usando el token de acceso de Docker Hub
 
       - name: Build Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:$GITHUB_SHA .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:$GITHUB_SHA .  # Etiqueta la imagen con el commit hash
 
       - name: Push Docker Image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/my-app:$GITHUB_SHA
+          docker push ${{ secrets.DOCKER_USERNAME }}/my-app:$GITHUB_SHA  # Empuja la imagen al repositorio Docker Hub
