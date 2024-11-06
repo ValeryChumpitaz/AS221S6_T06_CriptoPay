@@ -2,14 +2,15 @@ version: '3.8'
 
 services:
   frontend:
-    image: shirleyascencio/as221s6_t06_cryptopay-frontend:latest
+    image: valery2024/cryptopay-frontend:latest
     ports:
       - "80:80"
     depends_on:
       - database
 
   database:
-    image: shirleyascencio/as221s6_t06_cryptopay-database:latest
+    image: valery2024/cryptopay-database:latest
+
     ports:
       - "3001:3001"
     environment:
