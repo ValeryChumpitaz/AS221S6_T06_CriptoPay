@@ -24,17 +24,64 @@
   height: 70px;
   border-radius: 50%;
   margin-bottom: 10px;
+  margin-top: -20px;
 }
 
 .role {
   font-size: 12px;
-  color: #e0e0e0;
+  color: #efa1a1;
+  margin-top: -12px;
 }
 
 .name {
   font-size: 18px;
   font-weight: bold;
   color: #ffffff;
+  margin-top: -14px;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.metamask-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.wallet-address {
+  font-size: 14px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.status-dot.connected {
+  background-color: green;
+}
+
+.status-dot.disconnected {
+  background-color: red;
+}
+
+.network-switch {
+  margin: 15px 0;
+  text-align: center;
+}
+
+#network-select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .menu {
@@ -82,3 +129,182 @@
   padding: 8px 0; /* Ajusta el padding del submenú */
   font-size: 18px; /* Tamaño de fuente más pequeño para el submenú */
 }
+
+.network-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.network-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.network-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.status-dot.connected {
+  background-color: green;
+}
+
+.status-dot.disconnected {
+  background-color: red;
+}
+ 
+/* red */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #ff7e29, #ffb74d);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.wallet-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.network-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: -30px;
+}
+
+.metamask-logo {
+  width: 20px;
+  height: 20px;
+}
+
+.network-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.status-dot {
+  width: 15px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #00ff00; /* Verde para conectado */
+}
+
+.disconnected .status-dot {
+  background-color: #ff0000; /* Rojo para desconectado */
+}
+
+.wallet-address-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  margin-top: -28px;
+  font-size: 14px;
+}
+
+.wallet-address {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.copy-icon {
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: -12px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.role {
+  font-size: 12px;
+  color: #e0e0e0;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.icon {
+  font-size: 26px;
+  margin-right: 10px;
+}
+
+.menu-item:hover {
+  background-color: #f7a037;
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.sub-menu-item {
+  padding: 8px 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.network-select {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  appearance: none;
+  cursor: pointer;
+}
+
+.network-select option {
+  color: rgb(235, 147, 33);
+}
+

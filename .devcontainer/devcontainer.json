@@ -1,0 +1,10 @@
+{
+    "name": "CRIPTOPAY",
+    "build": {
+      "dockerfile": "Dockerfile"  // o el archivo que uses para crear el contenedor
+    },
+    "forwardPorts": [5000],  // Especifica aquí el puerto que deseas exponer
+    "settings": {},
+    "extensions": []
+  }
+  

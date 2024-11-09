@@ -19,9 +19,11 @@ function RegisterPage() {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
+
     setFormData((prevState) => ({
       ...prevState,
       [name]: type === 'checkbox' ? checked : value,
+      role: name === 'contractorType' && value ? 'contractor' : prevState.role,
     }));
   };
 
@@ -35,6 +37,7 @@ function RegisterPage() {
       setWalletConnected(true);
     }
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -101,7 +104,7 @@ function RegisterPage() {
         </button>
 
         {formData.metamaskAddress && <p>Dirección MetaMask: {formData.metamaskAddress}</p>}
-        
+
         <div className="select-container">
           <label htmlFor="contractorType">Tipo de Contratista:</label>
           <select

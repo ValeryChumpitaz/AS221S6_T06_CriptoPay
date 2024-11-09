@@ -1,0 +1,81 @@
+/* Asegura que el contenedor ocupe toda la altura y esté centrado */
+.profile-pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+/* Contenedor del formulario */
+.route-form-container {
+    max-width: 700px; /* Ajusta el ancho máximo */
+    width: 100%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom right, #ffffff, #f7f7f7);
+}
+
+/* Título del formulario */
+.route-form-container h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ff7e29;
+    margin-bottom: 20px;
+}
+
+/* Estilos de cada grupo de campos */
+.route-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas de los campos */
+.route-form .form-group label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Campos de entrada y selectores */
+.route-form input,
+.route-form select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.route-form input::placeholder {
+    color: #aaa;
+}
+
+/* Estilo en foco */
+.route-form input:focus,
+.route-form select:focus {
+    border-color: #ff7e29;
+    outline: none;
+}
+
+/* Botón de envío */
+.submit-button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff7e29;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Ancho completo */
+}
+
+.submit-button:hover {
+    background-color: #e66d20;
+    transform: translateY(-2px);
+}

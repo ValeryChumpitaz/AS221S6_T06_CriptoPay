@@ -118,8 +118,8 @@ const Espanol = {
       {
         name: "Gabriel Gutierrez",
         role: "Desarrollador",
-        github: "https://github.com/gabrielgutierrez",
-        linkedin: "https://www.linkedin.com/in/gabrielgutierrez",
+        github: "https://github.com/GabrielGutierrezQuispe",
+        linkedin: "https://www.linkedin.com/in/gabrielegutierrez",
         image: "Gabriel.png",
       },
       {

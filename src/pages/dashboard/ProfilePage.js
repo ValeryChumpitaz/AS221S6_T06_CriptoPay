@@ -3,7 +3,7 @@ import Sidebar from '../../components/navigation/Sidebar';
 import Swal from 'sweetalert2';
 import '../../styles/dashboard/ProfilePage.css';
 
-const ProfilePage = ({ userId }) => {
+const ProfilePage = () => {
   const [userData, setUserData] = useState({
     firstName: '',
     lastName: '',
@@ -14,12 +14,14 @@ const ProfilePage = ({ userId }) => {
   });
 
   useEffect(() => {
-    if (!userId) {
-      Swal.fire('Error', 'ID de usuario no proporcionado', 'error');
+    const metamaskAddress = localStorage.getItem('metamaskAddress'); 
+
+    if (!metamaskAddress) {
+      Swal.fire('Error', 'Dirección de MetaMask no encontrada', 'error');
       return;
     }
 
-    fetch(`http://localhost:5000/user/${userId}`)
+    fetch(`http://localhost:5000/user/${metamaskAddress}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Error al obtener los datos del usuario');
@@ -31,7 +33,7 @@ const ProfilePage = ({ userId }) => {
         console.error('Error al obtener los datos del usuario:', error);
         Swal.fire('Error', 'Error al obtener los datos del usuario', 'error');
       });
-  }, [userId]);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
